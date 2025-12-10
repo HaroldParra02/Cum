@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Yen❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 🌇 Fondo con tu imagen difuminada */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("tu_foto.jpg") no-repeat center center/cover;
+      filter: blur(8px) brightness(0.6);
+      z-index: -2;
+    }
+
+    /* Capa de color suave para resaltar el texto */
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-shadow: 2px 3px 12px rgba(0, 0, 0, 0.6);
+      animation: aparecer 2s ease both;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin: 0 20px 30px;
+      text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.45);
+      animation: flotar 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes flotar {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* Botón de Spotify */
+    .spotify-btn {
+      background-color: #1db954;
+      color: white;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1;
+    }
+
+    .spotify-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Corazones animados */
+    .corazones {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .corazon {
+      position: absolute;
+      font-size: 20px;
+      animation: subir 6s linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(100vh) scale(0.9);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-20vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="corazones"></div>
+
+  <h1>Feliz Vuelta Al Sol mi Yen💝</h1>
+  <p>
+    Quiero desearte un año lleno de salud, alegría, amor y cosas bonitas.<br>
+    Valoro mucho haber coincidido contigo y que compartamos parte del camino.<br>
+    Disfruta tu día, te lo mereces❤️‍🩹.
+  </p>
+
+  <a
+    class="spotify-btn"
+    href="https://open.spotify.com/intl-es/track/0XQzw53uo8V4GErre45Az1?si=0b85df53e7094e4d"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Reproducir en Spotify
+  </a>
+
+  <script>
+    const contenedor = document.querySelector(".corazones");
+    function crearCorazon() {
+      const c = document.createElement("div");
+      c.className = "corazon";
+      c.textContent = "💕";
+      c.textContent = "👸";
+      c.textContent = "🙏🏽";
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.fontSize = 14 + Math.random() * 28 + "px";
+      c.style.animationDuration = 4 + Math.random() * 4 + "s";
+      contenedor.appendChild(c);
+      setTimeout(() => c.remove(), 8000);
+    }
+    setInterval(crearCorazon, 420);
+  </script>
+</body>
+</html>
